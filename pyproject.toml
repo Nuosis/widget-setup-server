@@ -1,0 +1,9 @@
+[project]
+name = "widget-setup-server"
+version = "0.1.0"
+description = "MCP server for creating FileMaker widget projects"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+]
