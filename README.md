@@ -12,7 +12,7 @@ This MCP (Model Context Protocol) server provides tools to create FileMaker widg
 ## Prerequisites
 
 - Python 3.13 or higher
-- pip or another Python package manager
+- uv
 - Git (for cloning the repository)
 - npm (for installing JavaScript dependencies)
 
@@ -20,19 +20,14 @@ This MCP (Model Context Protocol) server provides tools to create FileMaker widg
 
 1. Clone or download this repository
 2. Install the dependencies:
-   ```bash
-   pip install -e .
-   ```
-
-## Running the Server
-
-To start the widget setup server:
-
 ```bash
-python widget_setup_server.py
-```
+# Create and activate virtual environment
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-The server will start and listen for client connections.
+# Install dependencies
+uv sync
+```
 
 ## Client Configuration
 
@@ -44,9 +39,9 @@ To use this server with an MCP client, you need to connect to it using the serve
 {
     "mcpServers": {
         "widget-setup": {
-            "command": "/Users/marcusswift/.local/bin/uv",
+            "command": "/Users/<<user>>/.local/bin/uv",
             "args": [
-                "--directory", "/Users/marcusswift/mcp/widget-setup-server",
+                "--directory", "/Users/<<user>>/<<path to mcp dir>>/widget-setup-server",
                 "run", "widget_setup_server.py"
             ]
         }
